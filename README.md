@@ -6,9 +6,9 @@ A <a href="https://reactjs.org/docs/hooks-intro.html">React Hook</a> for making 
 
 <hr />
 
-<a href="#installation">Installation</a> |
-<a href="#options">Options</a> |
-<a href="#skip-animation">Skip Animation</a> |
+- <a href="#installation">Installation</a>
+- <a href="#options">Options</a>
+- <a href="#skip-animation">Skip Animation</a>
 
 <hr/>
 
