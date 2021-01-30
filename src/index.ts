@@ -3,28 +3,22 @@ import * as easings from './easingFunctions';
 import {
   IuseAnimateNumber,
   IeasingFunction,
-  ITimerRef,
-  oneOfEasingType
+  ITimerRef
 } from './types';
 
 const initTimer = setTimeout(() => null, Math.max());
-
-const defaultOptions = {
-  duration: 1000,
-  enterance: true,
-  direct: false,
-  disabled: false,
-  easing: 'easeInOutQuad',
-  decimals: 2,
-};
 
 const useAnimateNumber:IuseAnimateNumber = (
   initial = 0,
   options,
 ) => {
   const conf = {
-    ...defaultOptions,
-    ...options,
+    duration: options?.duration ?? 1000,
+    enterance: options?.enterance ?? true,
+    direct: options?.direct ?? false,
+    disabled: options?.disabled ?? false,
+    easing: options?.easing ?? 'easeInOutQuad',
+    decimals: options?.decimals ?? 2,
   };
 
   const increment = 20;
@@ -59,7 +53,7 @@ const useAnimateNumber:IuseAnimateNumber = (
     }
   }, [animationInfo]);
 
-  const easingFn:IeasingFunction = (...args) => easings['easeInOutQuad'](...args)
+  const easingFn:IeasingFunction = (...args) => easings[conf.easing](...args);
 
   const handleValueSet = (value: number, skip = conf.disabled) => {
     clearTm();
